@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8420BDD9279FBA43008CAEFD /* Set.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8420BDD8279FBA43008CAEFD /* Set.swift */; };
+		8420BDDB279FEC88008CAEFD /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8420BDDA279FEC88008CAEFD /* Card.swift */; };
 		846FBEE6279E6A3A0041A4B4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846FBEE5279E6A3A0041A4B4 /* AppDelegate.swift */; };
 		846FBEE8279E6A3A0041A4B4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846FBEE7279E6A3A0041A4B4 /* SceneDelegate.swift */; };
 		846FBEEA279E6A3A0041A4B4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846FBEE9279E6A3A0041A4B4 /* ViewController.swift */; };
@@ -16,6 +18,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8420BDD8279FBA43008CAEFD /* Set.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Set.swift; sourceTree = "<group>"; };
+		8420BDDA279FEC88008CAEFD /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		846FBEE2279E6A3A0041A4B4 /* Set(UIKIT).app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Set(UIKIT).app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		846FBEE5279E6A3A0041A4B4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		846FBEE7279E6A3A0041A4B4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -63,6 +67,8 @@
 				846FBEEE279E6A3B0041A4B4 /* Assets.xcassets */,
 				846FBEF0279E6A3B0041A4B4 /* LaunchScreen.storyboard */,
 				846FBEF3279E6A3B0041A4B4 /* Info.plist */,
+				8420BDD8279FBA43008CAEFD /* Set.swift */,
+				8420BDDA279FEC88008CAEFD /* Card.swift */,
 			);
 			path = "Set(UIKIT)";
 			sourceTree = "<group>";
@@ -138,7 +144,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8420BDD9279FBA43008CAEFD /* Set.swift in Sources */,
 				846FBEEA279E6A3A0041A4B4 /* ViewController.swift in Sources */,
+				8420BDDB279FEC88008CAEFD /* Card.swift in Sources */,
 				846FBEE6279E6A3A0041A4B4 /* AppDelegate.swift in Sources */,
 				846FBEE8279E6A3A0041A4B4 /* SceneDelegate.swift in Sources */,
 			);

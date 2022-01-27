@@ -11,8 +11,12 @@ struct SetGame<SetColor: Equatable, SetShape: Equatable, SetShading: Equatable, 
     typealias SetCard = Card<SetColor, SetShape, SetShading, SetNumber>
     
     var cards: [SetCard]
-    var selectedCards: [SetCard]
+    var selectedCards: [SetCard] = []
 
+    init(setup: () -> [SetCard]) {
+        self.cards = setup()
+    }
+    
     func check<T> (_ prop1: T, _ prop2: T, _ prop3: T)  -> Bool where T: Equatable {
         if prop1 != prop2 {
             if prop2 == prop3 || prop1 == prop3 {
