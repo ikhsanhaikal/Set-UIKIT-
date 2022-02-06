@@ -26,16 +26,22 @@ class ViewController: UIViewController {
     }
     
     @IBOutlet var cards: [UIButton]!
-    
+    @IBOutlet weak var plusButton: UIButton!
+    @IBOutlet weak var scores: UILabel!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         updateViewFromModel()
     }
-    
+
     func updateViewFromModel() {
-        cards.dropLast(12).enumerated().forEach { (index, buttonCard) in
-            let type = game.cards[index]
+        cards.enumerated().forEach { (index, buttonCard) in
+            if index >= game.playingCards.count {
+                buttonCard.isHidden = true
+                return
+            }
+            let type = game.playingCards[index]
             let color: UIColor
             var shape: String
             
@@ -71,21 +77,31 @@ class ViewController: UIViewController {
             default:
                 shape = "?"
             }
-
             
-            let attributedString = NSAttributedString(string: shape, attributes: [.foregroundColor: type.shading == "striped" ? color.withAlphaComponent(0.25) : color, .strokeWidth: type.shading == "stroked" ? 10 : -1 ])
+            let yellowish = UIColor(red: 255/255, green: 255/255, blue: 167/255, alpha: 1.0)
+            let grayish    = UIColor.tertiarySystemGroupedBackground
+            let attributedString = NSAttributedString(string: shape, attributes: [.foregroundColor: type.shading == "striped" ? color.withAlphaComponent(0.30) : color, .strokeWidth: type.shading == "stroked" ? 10 : -1 ])
+            buttonCard.isHidden = false
             buttonCard.setAttributedTitle(attributedString, for: .normal)
+            buttonCard.layer.borderWidth = 3.0
             buttonCard.layer.cornerRadius = 8
+            buttonCard.layer.borderColor = UIColor.lightGray.cgColor
+            buttonCard.backgroundColor = game.selectedCards.contains(type) ? yellowish : grayish
         }
-        
-        cards.dropFirst(24 - 12).forEach {
-            $0.backgroundColor = .init(white: 1.0, alpha: 0)
-            $0.isEnabled = false
-        }
+        scores.text = "Scores: \(game.score)"
+        plusButton.isEnabled = game.cards.count >= 3 && game.playingCards.count < 24 ? true : false
     }
     
     @IBAction func pickACard(_ sender: UIButton) {
-        
+        if let index = cards.firstIndex(of: sender) {
+            game.chooseCard(card: game.playingCards[index])
+        }
+        updateViewFromModel()
+    }
+    
+    @IBAction func drawCards(_ sender: UIButton) {
+        game.drawCards()
+        updateViewFromModel()
     }
     
 }

@@ -7,9 +7,13 @@
 
 import Foundation
 
-struct Card<SetColor, SetShape, SetShading, SetNumber>: Equatable {
+struct Card<SetColor, SetShape, SetShading, SetNumber>: Equatable, Hashable {
     static func == (lhs: Card<SetColor, SetShape, SetShading, SetNumber>, rhs: Card<SetColor, SetShape, SetShading, SetNumber>) -> Bool {
         lhs.identifier == rhs.identifier
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(identifier)
     }
     
     var identifier: Int
